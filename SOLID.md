@@ -42,19 +42,49 @@ class OrderViewer {
 Os objetos ou entidades devem estar abertos para extenção mas fechados para modificação. Quando um novo comportamento e recursos precisam ser adicionados no software devemos extender e não alterar o código font original.
 
 ```
+ class ContratoClt {
+   public function salario() {}
+ }
 
+ class Estagio {
+   public function bolsaAuxilio() {}
+ }
+
+ class FolhaDePagamento {
+   protected $saldo;
+
+   public function calcular($contrato) {
+     if ($contrato instanceof ContratoClt) {
+       $this->saldo = $contrato->salario();
+     } else if ($contrato instanceof Estagio) {
+       $this->saldo = $contrato->bolsaAuxilio();
+     }
+   }
+ }
 ```
 
+```
+  interface Remuneravel() {
+    public function remuneracao();
+  }
 
+  class ContratoClt implements Remuneravel {
+    public function remuneracao() {}
+  }
 
+  class ContratoPj implements Remuneravel {
+    public function remuneracao() {}
+  }
 
+  class Estagio implements Remuneravel {
+    public function remuneracao() {}
+  }
 
+  class FolhaDePagamento {
+    protected $saldo;
 
-
-
-
-
-
-
-
-
+    public function calcular(Remuneravel $contrato) {
+      $this->saldo = $contrato->remuneracao();
+    }
+  }
+```
