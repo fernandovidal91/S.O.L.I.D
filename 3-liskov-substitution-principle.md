@@ -160,7 +160,7 @@ class CreateUserService {
 export { CreateUserService };
 ```
 
-<p>Aqui nos criamos uma váriavel repository que é do tipo IDatabaseRepository e recebemos nossa classe <b>BASE</b> ou <b>DERIVADA</b> no construtor colocando ela dentro da nossa váriavel repository. Agora vamos escrever um pouco de código dentro do nosso método `execute`.</p>
+<p>Aqui nos criamos uma váriavel repository que é do tipo IDatabaseRepository e recebemos nossa classe <b>BASE</b> ou <b>DERIVADA</b> no construtor colocando ela dentro da nossa váriavel repository. Agora vamos escrever um pouco de código dentro do nosso método execute.</p>
 
 ```
 import { IDatabaseRepository } from './IDatabaseRepository';
