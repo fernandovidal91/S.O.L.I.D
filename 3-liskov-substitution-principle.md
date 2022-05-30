@@ -16,11 +16,12 @@ export default new PostgresRepository();
 <p>Porem para que a nossa classe <b>BASE</b> possa ser <b>SUBSTITUÍDA</b> por uma classe <b>DERIVADA</b> devemos adicionar um <b>CONTRATO</b>. Neste caso como estamos utilizando TypeScript utilizaremos uma interface como contrato.</p>
 
 ```
-interface IUserRepository {
+interface IPostgresRepository {
   findByName(name: string): string;
   list(): string[];
   create(name: string): void;
 }
 
-export default IUserRepository;
+export default IPostgresRepository;
 ```
+
