@@ -130,17 +130,63 @@ routes.post('/users', (req, res) => {
 
 <p>E também vamos criar nossa classe `CreateUserService` com o método `execute` dentro dela.</p>
 
+```
+class CreateUserService {
+  execute(name: string): void {
+    
+  }
+}
 
+export { CreateUserService };
+```
 
+<p>Okay, aqui esta o pulo do gato. Primeiro vamos criar uma váriavel privada com o nome de repository que sera do mesmo tipo que o nosso <b>CONTRATO</b>. Também vamos receber a nossa classe <b>BASE</b> ou a nossa classe <b>DERIVADA</b> no contrutor. Calma, já irei te explicar por que iremos receber a nossa classe <b>BASE</b> ou a nossa classe <b>DERIVADA</b> no contrutor</p>.
 
+```
+import { IDatabaseRepository } from './IDatabaseRepository';
 
+class CreateUserService {
+  private repository: IDatabaseRepository;
+  
+  constructor(repository: IDatabaseRepository) {
+    this.repository = repository;
+  }
 
+  execute(name: string): void {
+    
+  }
+}
 
+export { CreateUserService };
+```
 
+<p>Aqui nos criamos uma váriavel `repository` que é do tipo `IDatabaseRepository` e recebemos nossa classe <b>BASE</b> ou <b>DERIVADA</b> no construtor colocando ela dentro da nossa váriavel `repository`. Agora vamos escrever um pouco de código dentro do nosso método `execute`.</p>
 
+```
+import { IDatabaseRepository } from './IDatabaseRepository';
 
+class CreateUserService {
+  private repository: IDatabaseRepository;
+  
+  constructor(repository: IDatabaseRepository) {
+    this.repository = repository;
+  }
 
+  execute(name: string): void {
+    const userAlreadyExists = this.repository.findByName(name);
+    
+    if (categoryAlreadyExists) {
+      throw new Error('Category already exists');
+    }
+    
+    this.repository.create(name);
+  }
+}
 
+export { CreateUserService };
+```
+
+<p>Pronto, agora se você testar tudo estará certo</p>
 
 
 
