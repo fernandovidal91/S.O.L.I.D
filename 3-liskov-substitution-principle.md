@@ -193,14 +193,30 @@ Você utilizou o método findByName da classe PostgresRepository.
 Você utilizou o método create da classe PostgresRepository.
 ```
 
+<b>Beleza, agora você deve estar se pergunto sobre aquele blá blá blá todo né? vamos lá. Primeiro vamos relembrar o que o princípio nos diz.</b>
 
+<p>O princípio de substituição de Liskov diz que quando você tem uma classe <b>BASE</b> ela pode ser <b>SUBSTITUÍDA</b> por uma classe <b>DERIVADA</b>, pois a classe <b>DERIVADA</b> também é uma classe <b>BASE</b>.</p>
 
+<p>Você se lembra quem é nossa classe <b>BASE</b>? se você respondeu que é a classe PostgresRepository você acertou. Esperimente mudar a rota POST que criamos e alterar o import de PostgresRepository e chamando o arquivo MysqlRepository desta maneira aqui.</p>
 
+```
+import { MysqlRepository } from './MysqlRepository';
+```
 
+<p>E também a váriavel repository deixando ela desta menira aqui.</p>
 
+```
+const repository = new MysqlRepository();
+```
 
+<p>Se você testar novamente as mensagens no console devem ser estas aqui.</p>
 
+```
+Você utilizou o método findByName da classe MysqlRepository.
+Você utilizou o método create da classe MysqlRepository.
+```
 
+<p>O princípio diz que a nossa classe <b>BASE (PostgresRepository)</b> pode ser <b>SUBSTITUÍDA</b> pela nossa classe <b>DERIVADA (MysqlRepository)</b>. Isso por que ambas são iguais devido ao contrato.</p>
 
 
 
