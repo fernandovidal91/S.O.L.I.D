@@ -6,8 +6,6 @@
 <p>Imagine que temos uma classe <b>BASE</b> chamada `PostgresRepository.ts` com apenas três métodos (três são o exemplo, na verdade você pode ter quantos forem necessários).</p>
 
 ```
-// Arquivo PostgresRepository.ts
-
 class PostgresRepository {
 
 }
