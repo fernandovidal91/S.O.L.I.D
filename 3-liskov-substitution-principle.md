@@ -16,12 +16,93 @@ export default new PostgresRepository();
 <p>Porem para que a nossa classe <b>BASE</b> possa ser <b>SUBSTITUÍDA</b> por uma classe <b>DERIVADA</b> devemos adicionar um <b>CONTRATO</b>. Neste caso como estamos utilizando TypeScript utilizaremos uma interface como contrato.</p>
 
 ```
-interface IPostgresRepository {
+interface IDatabaseRepository {
   findByName(name: string): string;
   list(): string[];
   create(name: string): void;
 }
 
-export default IPostgresRepository;
+export default IDatabaseRepository;
 ```
 
+<p>Agora vamos implementar este contrato em nossa classe <b>BASE</b>.</p>
+
+```
+import IDatabaseRepository from './IDatabaseRepository';
+
+class PostgresRepository implements IDatabaseRepository {
+
+}
+
+export default new PostgresRepository();
+```
+
+<p>Se você estiver utilizando o Visual Studio Code provavelmente ele ira reclamar que os nossos três métodos não foram adicionar a classe `PostgresRepository`. Vamos adicionar os nossos três métodos agora.</p>
+
+```
+import IDatabaseRepository from './IDatabaseRepository';
+
+class PostgresRepository implements IDatabaseRepository{
+  findByName(name: string): string {
+    console.log(name);
+    return null;
+  }
+
+  list(): string[] {
+    console.log('lista');
+    return null;
+  }
+
+  create(name: string): void {
+    console.log(name);
+  }
+}
+
+export default new PostgresRepository();
+```
+
+<p>Agora nossa classe PostgresRepository está com o contrato assinado com a nossa interface. Porem agora precisamos da nossa classe <b>DERIVADA<b/>. Vamos criá-lá.</p>
+  
+```
+class MysqlRepository {
+
+}
+
+export default new MysqlRepository();
+```
+  
+<p>Agora vamos implementar nosso contrato em nossa classe <b>DERIVADA</b>.</p>
+
+```
+import IDatabaseRepository from './IDatabaseRepository';
+
+class MysqlRepository implements IDatabaseRepository {
+
+}
+
+export default new MysqlRepository();
+```
+
+<p>Não podemos nos esquecer de assinar está classe também com os métodos do contrato.</p>
+
+```
+import IDatabaseRepository from './IDatabaseRepository';
+
+class MysqlRepository implements IDatabaseRepository {
+  findByName(name: string): string {
+    console.log(name);
+    return null;
+  }
+
+  list(): string[] {
+    console.log('lista');
+    return null;
+  }
+
+  create(name: string): void {
+    console.log(name);
+  }
+}
+
+export default new MysqlRepository();
+```
