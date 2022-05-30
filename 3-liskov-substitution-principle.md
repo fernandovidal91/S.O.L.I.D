@@ -44,17 +44,17 @@ import { IDatabaseRepository } from './IDatabaseRepository';
 
 class PostgresRepository implements IDatabaseRepository{
   findByName(name: string): string {
-    console.log(name);
-    return null;
+    console.log('Você utilizou o método findByName da classe PostgresRepository.');
+    return name;
   }
 
   list(): string[] {
-    console.log('lista');
-    return null;
+    console.log('Você utilizou o método list da classe PostgresRepository.');
+    return [name, name, name];
   }
 
   create(name: string): void {
-    console.log(name);
+    console.log('Você utilizou o método create da classe PostgresRepository.');
   }
 }
 
@@ -90,17 +90,17 @@ import { IDatabaseRepository } from './IDatabaseRepository';
 
 class MysqlRepository implements IDatabaseRepository {
   findByName(name: string): string {
-    console.log(name);
+    console.log('Você utilizou o método findByName da classe MysqlRepository.');
     return null;
   }
 
   list(): string[] {
-    console.log('lista');
+    console.log('Você utilizou o método list da classe MysqlRepository.');
     return null;
   }
 
   create(name: string): void {
-    console.log(name);
+    console.log('Você utilizou o método create da classe MysqlRepository.');
   }
 }
 
@@ -186,7 +186,12 @@ class CreateUserService {
 export { CreateUserService };
 ```
 
-<p>Pronto, agora se você testar tudo estará certo</p>
+<p>Pronto, agora se você testar tudo estará certo e no seu console deve estar aparecendo as seguintes mensagens.</p>
+
+```
+Você utilizou o método findByName da classe PostgresRepository.
+Você utilizou o método create da classe PostgresRepository.
+```
 
 
 
