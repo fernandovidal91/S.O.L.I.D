@@ -1,9 +1,9 @@
 <h1>Liskov substitution principle</h1>
 <p>O princípio de substituição de Liskov diz que quando você tem uma classe <b>BASE</b> ela pode ser <b>SUBSTITUÍDA</b> por uma classe <b>DERIVADA</b>, pois a classe <b>DERIVADA</b> também é uma classe <b>BASE</b>.</p>
 
-<p>Agora você deve estar pensando "max que m&rd@ isso quer dizer?"</p>
+<p>Agora você deve estar pensando "mas que m&rd@ isso quer dizer?"</p>
 
-<p>Imagine que temos uma classe <b>BASE</b> chamada `PostgresRepository.ts` com apenas três métodos (três são o exemplo, na verdade você pode ter quantos forem necessários).</p>
+<p>Imagine que temos uma classe <b>BASE</b> chamada PostgresRepository.ts com apenas três métodos (três são o exemplo, na verdade você pode ter quantos forem necessários).</p>
 
 ```
 class PostgresRepository {
@@ -37,7 +37,7 @@ class PostgresRepository implements IDatabaseRepository {
 export { PostgresRepository };
 ```
 
-<p>Se você estiver utilizando o Visual Studio Code provavelmente ele ira reclamar que os nossos três métodos não foram adicionar a classe `PostgresRepository`. Vamos adicionar os nossos três métodos agora.</p>
+<p>Se você estiver utilizando o Visual Studio Code provavelmente ele ira reclamar que os nossos três métodos não foram adicionar a classe PostgresRepository. Vamos adicionar os nossos três métodos agora.</p>
 
 ```
 import { IDatabaseRepository } from './IDatabaseRepository';
@@ -128,7 +128,7 @@ routes.post('/users', (req, res) => {
 });
 ```
 
-<p>E também vamos criar nossa classe `CreateUserService` com o método `execute` dentro dela.</p>
+<p>E também vamos criar nossa classe CreateUserService com o método execute dentro dela.</p>
 
 ```
 class CreateUserService {
@@ -160,7 +160,7 @@ class CreateUserService {
 export { CreateUserService };
 ```
 
-<p>Aqui nos criamos uma váriavel `repository` que é do tipo `IDatabaseRepository` e recebemos nossa classe <b>BASE</b> ou <b>DERIVADA</b> no construtor colocando ela dentro da nossa váriavel `repository`. Agora vamos escrever um pouco de código dentro do nosso método `execute`.</p>
+<p>Aqui nos criamos uma váriavel repository que é do tipo IDatabaseRepository e recebemos nossa classe <b>BASE</b> ou <b>DERIVADA</b> no construtor colocando ela dentro da nossa váriavel repository. Agora vamos escrever um pouco de código dentro do nosso método `execute`.</p>
 
 ```
 import { IDatabaseRepository } from './IDatabaseRepository';
